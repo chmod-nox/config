@@ -1,12 +1,19 @@
 ## chrome flags
---ignore-gpu-blocklist --enable-overlay-scrollbar --enable-lazy-load --enable-gpu-rasterization --enable-zero-copy --enable-oop-rasterization
-
+--force-device-scale-factor=1.05 (in usr/application/chome.destop)
+#ignore-gpu-blocklist
+#smooth-scrolling disabled
+#overlay-scrollbars
+#enable-lazy-load-image-for-invisible-pages
+#enable-gpu-rasterization
+#enable-zero-copy
+#enable-unsafe-webgpu
 
 NOTE: remove all fish.tmp. files form the fish dir to remove all the temporaye enviroment variables
  required Prgrame to install
 
 https://github.com/oddmario/NVIDIA-Ubuntu-Driver-Guide
 
+install dysk
 stwich to g++ 12 for no error in nvim, install arttime :)
 use eza insted of ls use zoxide use  use yazi, fd, fzf,rg
 sccahe (a cacheing system for rust)
