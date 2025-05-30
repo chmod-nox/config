@@ -11,7 +11,7 @@ if [ "$HYPRGAMEMODE" = 1 ] ; then
     hyprctl --batch "\
         keyword animations:enabled 0;\
         keyword decoration:drop_shadow 0;\
-        keyword decoration:blur:passes 2;\
+        keyword decoration:blur:passes 3;\
         keyword general:gaps_in 2;\
         keyword general:gaps_out 2;\
         keyword general:border_size 1;\
