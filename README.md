@@ -7,6 +7,9 @@
 #enable-gpu-rasterization
 #enable-zero-copy
 #enable-unsafe-webgpu
+#enable-tab-audio-muting
+#enable-parallel-downloading
+
 
 NOTE: remove all fish.tmp. files form the fish dir to remove all the temporaye enviroment variables
  required Prgrame to install
