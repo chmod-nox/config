@@ -1,5 +1,5 @@
 ## chrome flags
---disable-gpu-driver-bug-workarounds, --force-device-scale-factor=1.05 (in usr/application/chome.destop)
+--disable-gpu-driver-bug-workarounds (in usr/application/chome.destop)
 #smooth-scrolling disabled
 #ozone-platform-hint wayland
 #overlay-scrollbars
