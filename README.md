@@ -1,7 +1,7 @@
 ## chrome flags
---force-device-scale-factor=1.05 (in usr/application/chome.destop)
-#ignore-gpu-blocklist
+--disable-gpu-driver-bug-workarounds, --force-device-scale-factor=1.05 (in usr/application/chome.destop)
 #smooth-scrolling disabled
+#ozone-platform-hint wayland
 #overlay-scrollbars
 #enable-lazy-load-image-for-invisible-pages
 #enable-gpu-rasterization
