@@ -16,6 +16,7 @@ set -g theme_hostname always
 set -gx EDITOR nvim
 # set -gx RUSTC_WRAPPER "/usr/bin/sccache" use only for old pc
 set -gx TERMINAL st
+set fish_cursor_insert block
 
 # aliases
 alias 1 'arttime --nolearn -a colorowl2 -b colorowl3 -g "7m;60m;loop4"'
