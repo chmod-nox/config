@@ -16,7 +16,7 @@ NOTE: remove all fish.tmp. files form the fish dir to remove all the temporaye e
 
 https://github.com/oddmario/NVIDIA-Ubuntu-Driver-Guide
 
-install dysk
+install dysk, dua-cli, astroterm
 stwich to g++ 12 for no error in nvim, install arttime :)
 use eza insted of ls use zoxide use  use yazi, fd, fzf,rg
 sccahe (a cacheing system for rust)
@@ -49,6 +49,8 @@ i have my own config (inspired from nvchad's config)
 at https://github.com/ayush-india/.nvim
 GOat 
 fish key bindings
+
+get nvim ppa https://github.com/neovim/neovim/blob/master/INSTALL.md#ubuntu
 
 save new fonts in ~/.local/share/fonts and /usr/share/fonts/ 
 

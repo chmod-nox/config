@@ -23,7 +23,6 @@ alias 1 'arttime --nolearn -a colorowl2 -b colorowl3 -g "7m;60m;loop4"'
 alias 2 'arttime --nolearn -a unix -g "60m;loop10"'
 alias l "eza --icons=always --git"
 alias la "eza -all --icons=always --git"
-alias nvim "~/nvim-linux64/bin/nvim"
 alias bat "bat -p"
 # alias pdf "MESA_GL_VERSION_OVERRIDE=2.1 MESA_GLSL_VERSION_OVERRIDE=330 sioyek"
 alias pdf "sioyek"
