@@ -305,7 +305,7 @@
   "format-icons": ["", ""]
 },
 "battery": {
-	//"interval": 5,
+	"interval": 2,
 	"align": 0,
 	"rotate": 0,
 	//"bat": "BAT1",
@@ -317,8 +317,8 @@
 		"warning": 30,
 		"critical": 15
 	},
-	"format": "{icon} {capacity}%",
-	"format-charging": " {capacity}%",
+	"format": "{capacity}% {power}w",
+	"format-charging": " {capacity}% {power}w",
 	"format-plugged": "󱘖 {capacity}%",
 	"format-alt-click": "click",
 	"format-full": "{icon} Full",
@@ -378,7 +378,6 @@
 "clock#3": {
     //"format": "{:%I:%M %p - %d/%b}", //for AM/PM
   "format": "{:%H:%M - %d/%b}", // 24H
-	"tooltip": false,
 	"on-click-right": "zenity --calendar"
 },
 "clock#4": {
