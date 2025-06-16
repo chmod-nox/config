@@ -152,3 +152,5 @@
 .config/wireshark
 .config/nvim.me
 .config/geeqie
+.config/waybar/.modules.swp
+.config/pavucontrol.ini
