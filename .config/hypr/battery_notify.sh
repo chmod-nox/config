@@ -1,58 +1,48 @@
 #!/bin/bash
+# --- Configuration ---
+# You can usually find your battery name by running: ls /sys/class/power_supply/
+BATTERY="BAT0"
+POLL_INTERVAL=60 # Check battery status every 60 seconds.
+NOTIFICATION_TIMEOUT=10000 # 7 seconds in milliseconds.
 
-STATE_FILE="/tmp/battery_notify_state"
+# --- Script Logic ---
+# Path to the battery information in the /sys filesystem.
+BATTERY_PATH="/sys/class/power_supply/${BATTERY}"
 
-# Get battery status and level
-BATTERY_LEVEL=$(cat /sys/class/power_supply/BAT0/capacity)
-STATUS=$(cat /sys/class/power_supply/BAT0/status)
-
-# Load last state
-LAST_STATE="none"
-if [ -f "$STATE_FILE" ]; then
-    LAST_STATE=$(cat "$STATE_FILE")
+# Check if the battery exists.
+if [ ! -d "$BATTERY_PATH" ]; then
+  notify-send -u critical "Battery Script Error" "Battery '${BATTERY}' not found at '${BATTERY_PATH}'. Please check your configuration."
+  exit 1
 fi
 
-function notify() {
-    notify-send "🔋 Battery Update" "$1"
-}
+# Initialize notification flags.
+NOTIFIED_30=false
+NOTIFIED_90=false
 
-# -------------------
-# Charging: notify every +5% above 70%
-# -------------------
-if [[ "$STATUS" == "Charging" ]]; then
-    if (( BATTERY_LEVEL >= 70 && BATTERY_LEVEL <= 100 && BATTERY_LEVEL % 5 == 0 )); then
-        CURRENT_STATE="charging_$BATTERY_LEVEL"
-        if [[ "$LAST_STATE" != "$CURRENT_STATE" ]]; then
-            if (( BATTERY_LEVEL == 90 )); then
-                notify "Battery at 90% — You can unplug the charger 🔌"
-            else
-                notify "Charging: Battery at $BATTERY_LEVEL%"
-            fi
-            echo "$CURRENT_STATE" > "$STATE_FILE"
-        fi
+# Main loop to monitor the battery.
+while true; do
+  # Get the current battery percentage and status (Charging/Discharging).
+  CURRENT_PERCENTAGE=$(cat "${BATTERY_PATH}/capacity")
+  STATUS=$(cat "${BATTERY_PATH}/status")
+
+  if [ "$STATUS" = "Discharging" ]; then
+    # Notify when battery hits 30% while discharging.
+    if [ "$CURRENT_PERCENTAGE" -le 30 ] && [ "$NOTIFIED_30" = false ]; then
+      notify-send -t "$NOTIFICATION_TIMEOUT" -u critical "Battery Low" "Plug in the charger!"
+      NOTIFIED_30=true
     fi
-fi
-
-# -------------------
-# Discharging: notify every -5% below 90%
-# -------------------
-if [[ "$STATUS" == "Discharging" ]]; then
-    if (( BATTERY_LEVEL <= 90 && BATTERY_LEVEL >= 70 && BATTERY_LEVEL % 5 == 0 )); then
-        CURRENT_STATE="discharging_$BATTERY_LEVEL"
-        if [[ "$LAST_STATE" != "$CURRENT_STATE" ]]; then
-            if (( BATTERY_LEVEL == 70 )); then
-                notify "Battery at 70% — Plug in the charger 🔌"
-            else
-                notify "Discharging: Battery at $BATTERY_LEVEL%"
-            fi
-            echo "$CURRENT_STATE" > "$STATE_FILE"
-        fi
+    # Reset the 90% notification flag when discharging.
+    NOTIFIED_90=false
+  elif [ "$STATUS" = "Charging" ]; then
+    # Notify when battery hits 90% while charging.
+    if [ "$CURRENT_PERCENTAGE" -ge 90 ] && [ "$NOTIFIED_90" = false ]; then
+      notify-send -t "$NOTIFICATION_TIMEOUT" -u critical "Battery Full" "Remove the charger"
+      NOTIFIED_90=true
     fi
-fi
+    # Reset the 30% notification flag when charging.
+    NOTIFIED_30=false
+  fi
 
-# -------------------
-# Reset state when out of range
-# -------------------
-if (( BATTERY_LEVEL < 65 || BATTERY_LEVEL > 95 )); then
-    echo "none" > "$STATE_FILE"
-fi
+  # Wait for the defined interval before checking again.
+  sleep "$POLL_INTERVAL"
+done
