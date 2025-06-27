@@ -13,8 +13,8 @@
 "fixed-center": true,
 "ipc": true,
 "margin-top": 0,
-"margin-left": 8,
-"margin-right": 8,
+"margin-left": 0,
+"margin-right": 0,
 
 "modules-left": [
 	"hyprland/workspaces#rw",
