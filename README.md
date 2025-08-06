@@ -51,6 +51,8 @@ at https://github.com/ayush-india/.nvim
 GOat 
 fish key bindings
 
+run fzf_configure_bindings --help
+
 get nvim ppa https://github.com/neovim/neovim/blob/master/INSTALL.md#ubuntu
 
 save new fonts in ~/.local/share/fonts and /usr/share/fonts/ 
