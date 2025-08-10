@@ -557,7 +557,7 @@
 	},
 	"scroll-step": 5.0,
 	"on-click": "~/.config/hypr/scripts/Volume.sh --toggle",
-	"on-click-right": "pavucontrol -t 3",
+	"on-click-right": "pavucontrol -t 1",
 	"on-scroll-up": "~/.config/hypr/scripts/Volume.sh --inc",
 	"on-scroll-down": "~/.config/hypr/scripts/Volume.sh --dec",
 	"tooltip-format": "{icon} {desc} | {volume}%",

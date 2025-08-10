@@ -1,0 +1,23 @@
+{
+  "$schema": "https://charm.land/crush.json",
+  "lsp": {
+    "go": {
+      "command": "gopls"
+    },
+    "typescript": {
+      "command": "typescript-language-server",
+      "args": ["--stdio"]
+    },
+    "cpp": {
+      "command": "clangd"
+    },
+    "rust": {
+      "command": "rust-analyzer"
+    },
+    "python": {
+      "command": "pyright-langserver",
+      "args": ["--stdio"]
+    }
+  }
+}
+
