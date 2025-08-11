@@ -1,23 +1,15 @@
 {
   "$schema": "https://charm.land/crush.json",
+  "permissions": {
+      "allowed_tools": [
+        "view",
+        "ls",
+        "grep",
+        "edit",
+        "git"
+      ]
+    },
   "lsp": {
-    "go": {
-      "command": "gopls"
-    },
-    "typescript": {
-      "command": "typescript-language-server",
-      "args": ["--stdio"]
-    },
-    "cpp": {
-      "command": "clangd"
-    },
-    "rust": {
-      "command": "rust-analyzer"
-    },
-    "python": {
-      "command": "pyright-langserver",
-      "args": ["--stdio"]
-    }
   }
 }
 
