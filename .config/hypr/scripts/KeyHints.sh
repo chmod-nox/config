@@ -41,7 +41,7 @@ GDK_BACKEND=$BACKEND yad --width=$dynamic_width --height=$dynamic_height \
     --column=Command: \
     --timeout-indicator=bottom \
 "ESC" "close this app" "" "=" "SUPER KEY (Windows Key)" "(SUPER KEY)" \
-" enter" "Terminal" "(kitty)" \
+" enter" "Terminal" "(foot)" \
 " SHIFT enter" "DropDown Terminal" "(kitty-pyprland)" \
 " A" "Desktop Overview" "(AGS Overview)" \
 " D" "App Launcher" "(rofi-wayland)" \

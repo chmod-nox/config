@@ -10,6 +10,7 @@ windowrule = center,^(pavucontrol|org.pulseaudio.pavucontrol|com.saivert.pwvucon
 windowrule = center,^([Ww]hatsapp-for-linux)$
 windowrule = center,^([Ff]erdium)$
 
+
 # WINDOWRULE v2
 # windowrule v2 - position
 # windowrulev2 = center,floating:1 # warning, it cause even the menu to float and center.
