@@ -3,20 +3,21 @@ function fish_greeting
 		echo " make short note of at nigga ,leran beldner, there is a fast way to compute prime no its p*p <= n  make calcutor terminal"
 end
 set -gx TERM xterm-256color
-set  fish_vi_key_bindings
+set -gx fish_vi_key_bindings
 # set fzf_fd_opts --no-ignore
-set -g fzf_fd_opts --hidden --no-ignore
+set -gx fzf_fd_opts --hidden --no-ignore
 # theme
-set -g theme_color_scheme terminal-dark
-set -g fish_prompt_pwd_dir_length 3
-set -g theme_display_user yes
-set -g theme_hide_hostname no
+set -gx theme_color_scheme terminal-dark
+set -gx fish_prompt_pwd_dir_length 3
+set -gx theme_display_user yes
+set -gx LANG "en_US.UTF-8"
+set -gx theme_hide_hostname no
 set -gx GIT_EDITOR vim
-set -g theme_hostname always
+set -gx theme_hostname always
 set -gx EDITOR nvim
 # set -gx RUSTC_WRAPPER "/usr/bin/sccache" use only for old pc
-set -gx TERMINAL st
-set fish_cursor_insert block
+set -gx TERMINAL foot
+set -gx fish_cursor_insert block
 
 # aliases
 alias 1 'arttime --nolearn -a colorowl2 -b colorowl3 -g "7m;60m;loop4"'
@@ -44,6 +45,7 @@ function n
 end
 set -gx PATH bin $PATH
 set -gx PATH /usr/local/go/bin $PATH
+set -gx PATH /home/bro_grammer/.local/share/nvim/mason/bin $PATH
 set -gx PATH $HOME/go/bin $PATH
 set -gx PATH ~/bin $PATH
 set -gx NNN_OPENER '~/.config/nnn/plugins/nuke'
