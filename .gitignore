@@ -7,6 +7,7 @@
 !/.cargo/
 !/.vimrc
 !/.vim
+!done-this
 !/.viminfo
 !/.config/
 !.gitignore 

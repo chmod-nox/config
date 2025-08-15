@@ -37,6 +37,7 @@ GIMP image editor
  rofi(app-launcher)
  vlc
 
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash loglevel=0 rd.systemd.show_status=false ipv6.disable=1 vt.global_cursor_default=0"
 
 ### curl -fsSL https://deb.nodesource.com/setup_20.x | sudo bash -
 sudo apt-get install -y nodejs 
