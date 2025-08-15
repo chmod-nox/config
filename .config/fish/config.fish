@@ -53,3 +53,7 @@ set -gx NNN_PLUG 'b:bulknew;d:diffs;f:fzcd;F:fzopen;l:launch;t:preview-tui;n:nuk
 set -gx NNN_FIFO /tmp/nnn.fifo n
 set -gx PATH ~/.local/bin/ $PATH
 zoxide init fish --hook pwd | source
+
+if status --is-login; and test (tty) = "/dev/tty1"
+    exec Hyprland >/dev/null 2>&1
+end
